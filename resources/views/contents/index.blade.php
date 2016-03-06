@@ -18,7 +18,8 @@
                 </tr>
             </thead>
             <tbody>
-            @foreach($contents as $content)
+            @if($contents->count() > 0)
+                @foreach($contents as $content)
                 <tr>
                     <td>{{ $content->title }}</td>
                     <td>{{ $content->teaser }}</td>
@@ -28,7 +29,12 @@
                         <a class="btn btn-default" href="/admin/contents/{{ $content->id }}/edit"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
                     </td>
                 </tr>
-            @endforeach
+                @endforeach
+            @else
+                <tr>
+                    <td colspan="5">Keine Inhalte gefunden.</td>
+                </tr>
+            @endif
             </tbody>
         </table>
     </div>

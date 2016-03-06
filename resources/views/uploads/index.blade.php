@@ -18,7 +18,8 @@
                 </tr>
             </thead>
             <tbody>
-            @foreach($uploads as $upload)
+            @if($uploads->count() > 0)
+                @foreach($uploads as $upload)
                 <tr>
                     <td>{{ $upload->content->title }}</td>
                     <td>{{ $upload->description}}</td>
@@ -28,7 +29,12 @@
                         <a class="btn btn-default" href="/admin/uploads/{{ $upload->id }}/edit"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
                     </td>
                 </tr>
-            @endforeach
+                @endforeach
+            @else
+                <tr>
+                    <td colspan="5">Keine Bilder gefunden.</td>
+                </tr>
+            @endif
             </tbody>
         </table>
     </div>

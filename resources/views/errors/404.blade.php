@@ -33,7 +33,7 @@
         <script src="/js/respond.js"></script>
         <![endif]-->
     </head><!--/head-->
-    <body id="home" class="homepage" style="background-image: url('/images/404.jpg');">
+    <body id="home" class="homepage" style="background-image: url('/public/images/404.jpg');">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">

@@ -38,7 +38,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="jumbotron">
-                        <h1>404 - die Seite wurde gerodet.</h1>
+                        <h1>404 - die Seite wurde gerodet</h1>
                         <a href="/public/" class="btn btn-lg btn-primary">Zur&uuml;ck zur Startseite</a>
                     </div>
 

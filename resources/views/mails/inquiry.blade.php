@@ -1,1 +1,1 @@
-{{ dd($message) }}
+{{ dd($data) }}

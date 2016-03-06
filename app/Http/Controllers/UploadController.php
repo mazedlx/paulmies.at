@@ -56,13 +56,13 @@ class UploadController extends Controller
             $thumb_path = public_path('uploads/' . $thumb);
             Image::make($file->getRealPath())->widen(1920)->save($path);
             Image::make($file->getRealPath())->widen(300)->save($thumb_path);
-            // $upload = Upload::create([
-            //     'content_id' => $request->content_id,
-            //     'description' => $request->description,
-            //     'filename' => $filename,
-            //     'sort' => $sort
-            // ]);
-            // $sort++;
+            $upload = Upload::create([
+                'content_id' => $request->content_id,
+                'description' => $request->description,
+                'filename' => $filename,
+                'sort' => $sort
+            ]);
+            $sort++;
         }
         Session::flash('msg_body', 'Bild(er) wurde(n) angelegt.');
         return redirect('/admin/uploads');
@@ -106,6 +106,7 @@ class UploadController extends Controller
     {
         $upload = Upload::findOrFail($id);
         $upload->update($request->all());
+
         Session::flash('msg_body', 'Gespeichert.');
         return redirect('/admin/uploads');
     }

@@ -41,7 +41,7 @@
                             <div class="carousel-content">
                                 <h2>{{ $slide->title }}</h2>
                                 <p>{{ $slide->text }}</p>
-                                <a class="btn btn-primary btn-lg" href="#kontaktformular">Kontaktieren Sie uns</a>
+                                <a class="btn btn-primary btn-lg" href="#kontakt">Kontaktieren Sie uns</a>
                             </div>
                         </div>
                     </div>

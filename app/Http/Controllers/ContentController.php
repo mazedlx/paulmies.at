@@ -117,7 +117,7 @@ class ContentController extends Controller
 
     public function inquiry(Request $request)
     {
-        $data[] = $request->message;
+        $data = ['inquiry' => $request->message];
         Mail::send('mails.inquiry', $data, function ($message) {
             $message->from('office@paulmies.at', 'Website-Anfrage');
             $message->to(Configuration::config('email')->get()->first()->value, Configuration::config('name')->get()->first()->value);

@@ -22,7 +22,8 @@ class UploadController extends Controller
      */
     public function index()
     {
-        $uploads = Upload::orderBy('sort', 'asc')->paginate(10);
+        //$uploads = Upload::orderBy('sort', 'asc')->paginate(10);
+        $uploads = [];
         return view('uploads.index')
             ->with('uploads', $uploads);
     }
@@ -34,11 +35,7 @@ class UploadController extends Controller
      */
     public function create()
     {
-        if(Content::count() > 0) {
-            $contents = Content::orderBy('title', 'asc')->get()->pluck('title', 'id');
-        } else {
-            $contents = [];
-        }
+        $contents = Content::orderBy('title', 'asc')->get()->pluck('title', 'id');
 
         return view('uploads.create')
             ->with('contents', $contents);

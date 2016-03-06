@@ -1,1 +1,1 @@
-{{ dd($inquiry) }}
+{{ $inquiry }}

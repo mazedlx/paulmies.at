@@ -34,7 +34,11 @@ class UploadController extends Controller
      */
     public function create()
     {
-        $contents = Content::orderBy('title', 'asc')->get()->pluck('title', 'id');
+        if(Content::count() > 0) {
+            $contents = Content::orderBy('title', 'asc')->get()->pluck('title', 'id');
+        } else {
+            $contents = [];
+        }
 
         return view('uploads.create')
             ->with('contents', $contents);

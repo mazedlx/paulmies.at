@@ -96,8 +96,8 @@ class SlideController extends Controller
     public function destroy($id)
     {
         $slide = Slide::findOrFail($id);
-        unlink(public_path('uploads/slides/' . $upload->filename));
-        unlink(public_path('uploads/slides/thumb_' . $upload->filename));
+        unlink(public_path('uploads/slides/' . $slide->filename));
+        unlink(public_path('uploads/slides/thumb_' . $slide->filename));
         $slide->delete();
         Session::flash('msg_body', 'Slide wurde entfernt.');
         return redirect('/admin/slides');

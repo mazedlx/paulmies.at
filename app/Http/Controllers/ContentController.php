@@ -107,7 +107,10 @@ class ContentController extends Controller
      */
     public function destroy($id)
     {
-        $content = Content::findOrFail($id)->delete();
+        $content = Content::findOrFail($id);
+        $content->uploads()->delete();
+        $content->delete();
+
         Session::flash('msg_body', 'Inhalt wurde entfernt.');
         return redirect('/admin/contents');
     }

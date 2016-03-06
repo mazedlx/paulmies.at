@@ -52,7 +52,7 @@
     </div><!--/.owl-carousel-->
 </section><!--/#main-slider-->
 @endif
-<section id="cta0">
+<!--<section id="cta0">
     <div class="container">
         <div class="text-center">
             <h2 class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="0ms">

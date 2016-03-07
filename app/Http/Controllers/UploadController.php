@@ -57,7 +57,7 @@ class UploadController extends Controller
             $upload = Upload::create([
                 'content_id' => $request->content_id,
                 'description' => $request->description,
-                'filename' => $this->createImageAndThumbnail($request->file('file')),
+                'filename' => $this->createImageAndThumbnail($file),
                 'sort' => $sort
             ]);
             $sort++;

@@ -6,7 +6,7 @@ use App\Content;
 use App\Http\Requests;
 use App\Upload;
 use Illuminate\Http\Request;
-use App\Http\Traits\ResizesImages;
+use App\Http\Controllers\Traits\ResizesImages;
 use Image;
 use Session;
 

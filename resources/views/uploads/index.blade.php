@@ -24,7 +24,7 @@
                     <td>{{ $upload->content->title }}</td>
                     <td>{{ $upload->description}}</td>
                     <td>{{ $upload->sort }}</td>
-                    <td><img src="/uploads/thumb_{{ $upload->filename }}" alt="" class="thumbnail"></td>
+                    <td><img src="/public/uploads/thumb_{{ $upload->filename }}" alt="" class="thumbnail"></td>
                     <td>
                         <a class="btn btn-default" href="/admin/uploads/{{ $upload->id }}/edit"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
                     </td>

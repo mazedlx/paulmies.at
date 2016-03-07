@@ -12,10 +12,6 @@ class SlideController extends Controller
 {
     use ResizesImages;
 
-    protected $storagePath = 'uploads/slides';
-    protected $imageWidth = 1600;
-    protected $thumbWidth = 300;
-
     public function __construct()
     {
         $this->middleware('auth');
@@ -51,14 +47,7 @@ class SlideController extends Controller
     public function store(Request $request)
     {
         $slide = Slide::create($request->all());
-        $file = $request->file('file');
-        $filename = sha1(time() . $file->getClientOriginalName()) . '.' . $file->guessClientExtension();
-        $path = public_path($this->storagePath . '/' . $filename);
-        $thumb = 'thumb_' . $filename;
-        $thumb_path = public_path($this->storagePath . '/' . $thumb);
-        Image::make($file->getRealPath())->widen($this->imageWidth)->save($path);
-        Image::make($file->getRealPath())->widen($this->thumbWidth)->save($thumb_path);
-        $slide->filename = $filename;
+        $slide->filename = $this->createSlideAndThumbnail($request->file('file'));
         $slide->save();
         Session::flash('msg_body', 'Slide wurde angelegt.');
         return redirect('/admin/slides');

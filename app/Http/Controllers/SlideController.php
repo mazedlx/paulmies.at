@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Slide;
 use Illuminate\Http\Request;
-use Image;
+use App\Http\Controllers\Traits\ResizesImages;
 use Session;
 
 class SlideController extends Controller
 {
+    use ResizesImages;
+
     protected $storagePath = 'uploads/slides';
     protected $imageWidth = 1600;
     protected $thumbWidth = 300;

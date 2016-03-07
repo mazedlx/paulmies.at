@@ -6,14 +6,13 @@ use App\Content;
 use App\Http\Requests;
 use App\Upload;
 use Illuminate\Http\Request;
+use App\Http\Traits\ResizesImages;
 use Image;
 use Session;
 
 class UploadController extends Controller
 {
-    protected $storagePath = 'uploads';
-    protected $imageWidth = 1920;
-    protected $thumbWidth = 300;
+    use ResizesImages;
 
     public function __construct()
     {
@@ -55,16 +54,10 @@ class UploadController extends Controller
     {
         $sort = 0;
         foreach ($request->file('files') as $file) {
-            $filename = sha1(time() . $file->getClientOriginalName()) . '.' . $file->guessClientExtension();
-            $path = public_path($this->storagePath . '/' . $filename);
-            $thumb = 'thumb_' . $filename;
-            $thumb_path = public_path($this->storagePath . '/' . $thumb);
-            Image::make($file->getRealPath())->widen($this->imageWidth)->save($path);
-            Image::make($file->getRealPath())->fit($this->thumbWidth)->save($thumb_path);
             $upload = Upload::create([
                 'content_id' => $request->content_id,
                 'description' => $request->description,
-                'filename' => $filename,
+                'filename' => $this->createImageAndThumbnail($request->file('file')),
                 'sort' => $sort
             ]);
             $sort++;

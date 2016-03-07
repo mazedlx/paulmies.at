@@ -28,7 +28,7 @@ trait ResizesImages {
         $imagePath = public_path($this->imageStoragePath . '/' . $filenames['filename']);
         $thumbPath = public_path($this->imageStoragePath . '/' . $filenames['thumbnail']);
         Image::make($file->getRealPath())->widen($this->imageWidth)->save($imagePath);
-        Image::make($file->getRealPath())->widen($this->thumbWidth)->save($thumbPath);
+        Image::make($file->getRealPath())->fit($this->thumbWidth)->save($thumbPath);
         return $filenames['filename'];
     }
 
@@ -38,7 +38,7 @@ trait ResizesImages {
         $imagePath = public_path($this->slideStoragePath . '/' . $filenames['filename']);
         $thumbPath = public_path($this->slideStoragePath . '/' . $filenames['thumbnail']);
         Image::make($file->getRealPath())->widen($this->slideWidth)->save($imagePath);
-        Image::make($file->getRealPath())->widen($this->thumbWidth)->save($thumbPath);
+        Image::make($file->getRealPath())->fit($this->thumbWidth)->save($thumbPath);
         return $filenames['filename'];
     }
 }

@@ -11,6 +11,10 @@ use Session;
 
 class UploadController extends Controller
 {
+    protected $storagePath = 'uploads';
+    protected $imageWidth = 1920;
+    protected $thumbWidth = 300;
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -52,11 +56,11 @@ class UploadController extends Controller
         $sort = 0;
         foreach ($request->file('files') as $file) {
             $filename = sha1(time() . $file->getClientOriginalName()) . '.' . $file->guessClientExtension();
-            $path = public_path('uploads/' . $filename);
+            $path = public_path($this->storagePath . '/' . $filename);
             $thumb = 'thumb_' . $filename;
-            $thumb_path = public_path('uploads/' . $thumb);
-            Image::make($file->getRealPath())->widen(1920)->save($path);
-            Image::make($file->getRealPath())->widen(300)->save($thumb_path);
+            $thumb_path = public_path($this->storagePath . '/' . $thumb);
+            Image::make($file->getRealPath())->widen($this->imageWidth)->save($path);
+            Image::make($file->getRealPath())->fit($this->thumbWidth)->save($thumb_path);
             $upload = Upload::create([
                 'content_id' => $request->content_id,
                 'description' => $request->description,

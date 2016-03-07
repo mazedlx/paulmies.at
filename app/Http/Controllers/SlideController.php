@@ -10,6 +10,10 @@ use Session;
 
 class SlideController extends Controller
 {
+    protected $storagePath = 'uploads/slides';
+    protected $imageWidth = 1600;
+    protected $thumbWidth = 300;
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -47,11 +51,11 @@ class SlideController extends Controller
         $slide = Slide::create($request->all());
         $file = $request->file('file');
         $filename = sha1(time() . $file->getClientOriginalName()) . '.' . $file->guessClientExtension();
-        $path = public_path('uploads/slides/' . $filename);
+        $path = public_path($this->storagePath . '/' . $filename);
         $thumb = 'thumb_' . $filename;
-        $thumb_path = public_path('uploads/slides/' . $thumb);
-        Image::make($file->getRealPath())->widen(1600)->save($path);
-        Image::make($file->getRealPath())->widen(300)->save($thumb_path);
+        $thumb_path = public_path($this->storagePath . '/' . $thumb);
+        Image::make($file->getRealPath())->widen($this->imageWidth)->save($path);
+        Image::make($file->getRealPath())->widen($this->thumbWidth)->save($thumb_path);
         $slide->filename = $filename;
         $slide->save();
         Session::flash('msg_body', 'Slide wurde angelegt.');

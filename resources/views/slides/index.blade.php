@@ -23,7 +23,7 @@
                 <tr>
                     <td>{{ $slide->title }}</td>
                     <td>{{ $slide->text }}</td>
-                    <td><img src="/uploads/slides/thumb_{{ $slide->filename }}" alt=""></td>
+                    <td><img src="/public/uploads/slides/thumb_{{ $slide->filename }}" alt=""></td>
                     <td>{{ $slide->sort }}</td>
                     <td>
                         <a class="btn btn-default" href="/admin/slides/{{ $slide->id }}/edit"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>

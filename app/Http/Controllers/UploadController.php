@@ -14,6 +14,10 @@ class UploadController extends Controller
 {
     use ResizesImages;
 
+    /**
+     * Load auth middleware
+     * @access public
+     */
     public function __construct()
     {
         $this->middleware('auth');

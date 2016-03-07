@@ -9,6 +9,11 @@ use Session;
 
 class SettingController extends Controller
 {
+    /**
+     * Load auth middleware
+     *
+     * @access public
+     */
     public function __construct()
     {
         $this->middleware('auth');

@@ -12,9 +12,13 @@ use Session;
 
 class ContentController extends Controller
 {
+    /**
+     * Load middleware for all methods except index
+     * @access public
+     */
     public function __construct()
     {
-        $this->middleware('auth', ['only' => ['create', 'update', 'edit', 'destroy', 'store']]);
+        $this->middleware('auth', ['except' => ['index']]);
     }
     /**
      * Display a listing of the resource.
@@ -56,17 +60,6 @@ class ContentController extends Controller
         $content->save();
         Session::flash('msg_body', 'Inhalt wurde angelegt.');
         return redirect('/admin/contents');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -115,6 +108,13 @@ class ContentController extends Controller
         return redirect('/admin/contents');
     }
 
+    /**
+     * Send an email after the contact form was submitted
+     *
+     * @access public
+     * @param  Request $request
+     * @return \Illuminate\Http\Response
+     */
     public function inquiry(Request $request)
     {
         $data = [

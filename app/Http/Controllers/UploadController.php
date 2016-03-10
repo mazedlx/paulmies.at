@@ -29,7 +29,7 @@ class UploadController extends Controller
      */
     public function index()
     {
-        $uploads = Upload::orderBy('sort', 'asc')->paginate();
+        $uploads = Upload::orderBy('content_id', 'asc')->orderBy('sort', 'asc')->paginate();
 
         return view('uploads.index')
             ->with('uploads', $uploads);

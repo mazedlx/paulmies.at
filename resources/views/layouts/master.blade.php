@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="baumfällung, rodung, gartengestaltung, gartenpflege, grasschnitt, heckenschnitt, tischlerei, arborist">
-        <meta name="author" content="mazedlx.net Webproductions">
+        <meta name="author" content="mazedlx.net webproductions">
         <title>{{ $configs['name'] }}</title>
         <!-- Favicon Galore -->
         <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-touch-icon-57x57.png">

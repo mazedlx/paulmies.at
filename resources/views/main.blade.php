@@ -11,8 +11,9 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#home">
-                    <img src="images/logo-pm.png" alt="logo"> {{ $configs['logotext'] }}
+                    <img src="images/logo-pm.png" alt="logo">
                 </a>
+                <h1>{{ $configs['logotext'] }}</h1>
             </div>
             <div class="collapse navbar-collapse navbar-right">
                 <ul class="nav navbar-nav">

@@ -13,7 +13,7 @@
                 <a class="navbar-brand" href="#home">
                     <img src="images/logo-pm.png" alt="logo">
                 </a>
-                <h1 style="font-size: 16px;">{{ $configs['logotext'] }}</h1>
+                <h1 style="font-size: 16px; color: #589372">{!! $configs['logotext'] !!}</h1>
             </div>
             <div class="collapse navbar-collapse navbar-right">
                 <ul class="nav navbar-nav">

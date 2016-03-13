@@ -50,7 +50,7 @@
             </div>
         </footer><!--/#footer-->
         <script src="js/app.js"></script>
-        <script src="//maps.google.com/maps/api/js"></script>
+        <script src="//maps.google.com/maps/api/js?key=AIzaSyCCUj7JuUo02JwoczHcBdRR8QPcf1aaNlk"></script>
         <script>
             $('[data-class="a-menu"]').click(function() {
                 $('.navbar-collapse').collapse('hide');

@@ -95,7 +95,7 @@ if($i%2 == 0) {
         </div>
         @if($content->uploads()->count() > 0)
         <div class="portfolio-items">
-            @foreach($content->uploads as $upload)
+            @foreach($content->uploads->orderBy('sort', 'asc') as $upload)
             <div class="portfolio-item creative">
                 <div class="portfolio-item-inner">
                     <a class="preview" href="uploads/{{ $upload->filename }}" rel="prettyPhoto"><img class="img-responsive" src="uploads/thumb_{{ $upload->filename }}" alt=""></a>

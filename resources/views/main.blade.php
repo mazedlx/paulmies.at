@@ -36,7 +36,7 @@
 <section id="main-slider">
     <div class="owl-carousel">
     @foreach($slides as $slide)
-        <div class="item" style="background-image: url(public/uploads/slides/{{ $slide->filename }});">
+        <div class="item" style="background-image: url(uploads/slides/{{ $slide->filename }});">
             <div class="slider-inner">
                 <div class="container">
                     <div class="row">
@@ -98,7 +98,7 @@ if($i%2 == 0) {
             @foreach($content->uploads as $upload)
             <div class="portfolio-item creative">
                 <div class="portfolio-item-inner">
-                    <a class="preview" href="public/uploads/{{ $upload->filename }}" rel="prettyPhoto"><img class="img-responsive" src="public/uploads/thumb_{{ $upload->filename }}" alt=""></a>
+                    <a class="preview" href="uploads/{{ $upload->filename }}" rel="prettyPhoto"><img class="img-responsive" src="uploads/thumb_{{ $upload->filename }}" alt=""></a>
                     <div class="portfolio-info">
                         {{ $upload->description }}
                     </div>

@@ -27,7 +27,9 @@ class ContentController extends Controller
      */
     public function index()
     {
-        $contents = Content::with('uploads')->orderBy('sort', 'asc')->get();
+        $contents = Content::with(['uploads' => function($query) {
+            $query->orderBy('sort', 'asc');
+        }])->orderBy('sort', 'asc')->get();
         $configs = Configuration::all()->pluck('value', 'config');
         $slides = Slide::orderBy('sort', 'asc')->get();
 

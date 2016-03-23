@@ -459,11 +459,11 @@ ul.nostyle i {
   color: #fff;
 }
 
-/*@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 767px) {
   .portfolio-info {
     display: none;
   }
-}*/
+}
 
 .portfolio-item .portfolio-item-inner .portfolio-info h3 {
   font-size: 16px;

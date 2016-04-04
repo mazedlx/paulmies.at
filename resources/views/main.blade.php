@@ -89,7 +89,7 @@ if($i%2 == 0) {
         <div class="row">
             <div class="col-sm-12">
                 <div class="media service-box">
-                    <p>{{ $content->content }}</p>
+                    <p>{!! $content->content !!}</p>
                 </div>
             </div>
         </div>
